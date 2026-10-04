@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Montagu+Slab:opsz,wght@16..144,400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+  /* ==========================================================================
+     PROOFMODE DESIGN SYSTEM TOKENS (from proofmode.org)
+     ========================================================================== */
+  
+  /* Proofmode Core Typography */
+  --font-sans: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Montagu Slab', Georgia, serif;
+  --font-mono: 'Geist Mono', monospace;
+  --font-urdu: 'Noto Nastaliq Urdu', serif;
+
+  /* Proofmode Signature Color Palette */
+  --pm-bg: #f4f4f2;                 /* The iconic warm editorial ivory-stone */
+  --pm-bg-card: #ffffff;
+  --pm-white: #ffffff;
+  --pm-black: #000000;
+  
+  /* Forest & Dark Tones */
+  --pm-forest: #1e3834;             /* Deep pine midnight green text & primary buttons */
+  --pm-forest-dark: #142724;
+  --pm-forest-light: #2c524b;
+  --pm-gray-1: #fafaf8;
+  --pm-gray-2: #eeeeeb;
+  --pm-gray-3: #e3e3e1;             /* The trademark Proofmode hairline border */
+  --pm-gray-4: #8a8f98;
+  --pm-gray-5: #5f6368;
+  --pm-gray-dark: #272234;
+
+  /* Proofmode Signature Vibrant Greens */
+  --pm-green-100: #cdf5cc;          /* Soft mint highlight */
+  --pm-green-200: #a4eca2;          /* Light green */
+  --pm-green-core: #7ae377;         /* The Proofmode Core Vibrant Green */
+  --pm-green-400: #51da4d;          /* Bright badge green */
+  --pm-green-500: #31be2d;
+  --pm-green-600: #349d36;
+  --pm-green-700: #2c723b;
+  --pm-green-800: #235134;
+  --pm-green-900: #1e3834;
+
+  /* Proofmode Accent Accents */
+  --pm-flag-300: #f38536;           /* Amber / orange tag for warnings / highlight */
+  --pm-flag-800: #520e0b;
+  --pm-purple: #ed9ef3;             /* Proofmode soft lavender / purple */
+  --pm-purple-2: #e8b2f5;
+  --pm-gold: #c7a550;
+  --pm-bronze: #4e3b13;
+  --pm-cyan: #38bdf8;
+  --pm-danger: #ef4444;
+
+  /* Radii */
+  --radius-tag: 9999px;
+  --radius-btn: 9999px;
+  --radius-card: 40px;              /* Proofmode uses 40px large rounded blocks */
+  --radius-card-sm: 24px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 10px 30px rgba(30, 56, 52, 0.06);
+  --shadow-card-hover: 0 16px 42px rgba(30, 56, 52, 0.12);
+  --shadow-floating: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--pm-bg);
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--pm-bg);
+  color: var(--pm-black);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--pm-green-200);
+  color: var(--pm-forest);
+}
+
+/* RTL Urdu Specific Styling */
+body.lang-ur, [dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-urdu), var(--font-sans);
+  line-height: 2.1;
+}
+
+[dir="rtl"] input, [dir="rtl"] textarea {
+  text-align: right;
+}
+
+[dir="rtl"] .mono-number,
+[dir="rtl"] .font-mono {
+  font-family: var(--font-mono);
+  direction: ltr;
+  display: inline-block;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--pm-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--pm-gray-3);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pm-green-600);
+}
+
+/* Base Interactive Elements */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  outline: none;
+  border: none;
+}
+
+/* ==========================================================================
+   PROOFMODE CORE COMPONENT CLASSES (Direct from proofmode.org)
+   ========================================================================== */
+
+/* 1. Proofmode Verification Tag Pill (.proofmode-tag) */
+.proofmode-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--pm-white);
+  min-height: 37px;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  border: 1px solid var(--pm-gray-3);
+  border-radius: var(--radius-tag);
+  color: var(--pm-forest);
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.2s ease;
+}
+
+.proofmode-tag.proofmode-tag-green {
+  background-color: var(--pm-green-400);
+  border-color: var(--pm-green-500);
+  color: var(--pm-black);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+}
+
+.proofmode-tag.proofmode-tag-orange {
+  background-color: var(--pm-flag-300);
+  border-color: var(--pm-flag-300);
+  color: var(--pm-white);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+/* 2. Proofmode Capsule Buttons (.proofmode-btn) */
+.proofmode-btn {
+  min-height: 44px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.proofmode-btn-dark {
+  background-color: var(--pm-green-900);
+  color: var(--pm-white);
+  border: 1px solid var(--pm-green-900);
+}
+.proofmode-btn-dark:hover {
+  background-color: var(--pm-green-800);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 56, 52, 0.25);
+}
+
+.proofmode-btn-gradient {
+  background: linear-gradient(to right, var(--pm-green-core), var(--pm-green-100));
+  color: var(--pm-black);
+  border: 1px solid rgba(122, 227, 119, 0.4);
+}
+.proofmode-btn-gradient:hover {
+  background: linear-gradient(to right, var(--pm-green-400), var(--pm-green-200));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(122, 227, 119, 0.45);
+}
+
+.proofmode-btn-outline {
+  border: 1.5px solid var(--pm-green-900);
+  color: var(--pm-green-900);
+  background: transparent;
+}
+.proofmode-btn-outline:hover {
+  background-color: var(--pm-green-100);
+  transform: translateY(-2px);
+}
+
+/* 3. Proofmode 40px Rounded Block Gradient (.proofmode-block-gradient) */
+.proofmode-block-gradient {
+  background: linear-gradient(to bottom right, var(--pm-bg), var(--pm-green-100)) padding-box,
+              linear-gradient(to right, var(--pm-green-100), var(--pm-gray-3)) border-box;
+  border: 2px solid transparent;
+  border-radius: var(--radius-card);
+}
+
+/* Animations */
+@keyframes pulse-dot {
+  0% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(81, 218, 77, 0.6); }
+  70% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 0 8px rgba(81, 218, 77, 0); }
+  100% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(81, 218, 77, 0); }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes sound-wave {
+  0%, 100% { height: 6px; }
+  50% { height: 22px; }
+}
+
+.soundwave-bar {
+  display: inline-block;
+  width: 3px;
+  background: var(--pm-green-700);
+  border-radius: 3px;
+  animation: sound-wave 0.9s infinite ease-in-out;
+}
+.soundwave-bar:nth-child(2) { animation-delay: 0.15s; }
+.soundwave-bar:nth-child(3) { animation-delay: 0.35s; }
+.soundwave-bar:nth-child(4) { animation-delay: 0.2s; }
+.soundwave-bar:nth-child(5) { animation-delay: 0.45s; }
+
+.status-dot-green {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--pm-green-500);
+  display: inline-block;
+  animation: pulse-dot 2s infinite ease-in-out;
+}

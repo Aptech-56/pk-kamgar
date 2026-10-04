@@ -1,0 +1,1622 @@
+/* ==========================================================================
+   PROOFMODE DESIGN SYSTEM STYLESHEET (proofmode.org aesthetic)
+   ========================================================================== */
+
+.app-container {
+  min-height: 100vh;
+  background-color: var(--pm-bg);
+  color: var(--pm-black);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   1. STICKY HEADER & NAVBAR (Proofmode Navbar)
+   ========================================================================== */
+.ls-header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.ls-header {
+  height: 72px;
+  background: rgba(244, 244, 242, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--pm-gray-3);
+  transition: all 0.3s ease;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(30, 56, 52, 0.2) transparent;
+  width: 100%;
+}
+
+.ls-header::-webkit-scrollbar {
+  height: 3px;
+}
+.ls-header::-webkit-scrollbar-track {
+  background: var(--pm-gray-2);
+}
+.ls-header::-webkit-scrollbar-thumb {
+  background: var(--pm-green-600);
+  border-radius: var(--radius-full);
+}
+
+.ls-header-inner {
+  max-width: 1440px;
+  min-width: max-content;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: nowrap;
+}
+
+/* Brand Logo (Proofmode Signature Mark + Wordmark) */
+.ls-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--pm-forest);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.ls-logo-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pm-white);
+  border: 1.5px solid var(--pm-gray-3);
+  border-radius: var(--radius-full);
+  color: var(--pm-forest);
+  box-shadow: var(--shadow-subtle);
+}
+
+.ls-logo-text {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: var(--pm-forest);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ls-logo-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  background: var(--pm-green-100);
+  color: var(--pm-forest);
+  border: 1px solid var(--pm-green-200);
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+
+/* Navigation Links */
+.ls-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.ls-nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--pm-forest);
+  transition: color 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ls-nav-link:hover {
+  color: var(--pm-green-700);
+}
+
+/* Header Controls & CTAs */
+.ls-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Role Segmented Control (Proofmode Tag Style) */
+.ls-role-pill {
+  display: flex;
+  background: var(--pm-white);
+  border: 1px solid var(--pm-gray-3);
+  padding: 3px;
+  border-radius: var(--radius-full);
+  gap: 3px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.ls-role-btn {
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--pm-forest);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ls-role-btn:hover {
+  background: var(--pm-green-100);
+}
+
+.ls-role-btn.active {
+  background: var(--pm-forest);
+  color: var(--pm-white);
+}
+
+.ls-role-btn.active.admin-active {
+  background: var(--pm-green-800);
+  color: var(--pm-green-100);
+}
+
+/* Language Selector Pill in Header */
+.ls-lang-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 15px;
+  background: var(--pm-white);
+  border: 1px solid var(--pm-gray-3);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--pm-forest);
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.2s ease;
+}
+
+.ls-lang-pill-btn:hover {
+  background: var(--pm-green-100);
+  border-color: var(--pm-green-200);
+}
+
+/* Header CTA Button (Proofmode Gradient Pill) */
+.ls-btn-header-cta {
+  background: linear-gradient(to right, var(--pm-green-core), var(--pm-green-100));
+  color: var(--pm-black);
+  border: 1px solid rgba(122, 227, 119, 0.4);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 9px 20px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ls-btn-header-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(122, 227, 119, 0.4);
+}
+
+/* Scroll Indicators and Edge Fades */
+.ls-header-fade-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  background: linear-gradient(to right, rgba(244, 244, 242, 0.95), transparent);
+  pointer-events: none;
+  z-index: 102;
+}
+
+.ls-header-fade-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50px;
+  background: linear-gradient(to left, rgba(244, 244, 242, 0.95), transparent);
+  pointer-events: none;
+  z-index: 102;
+}
+
+.ls-header-scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 105;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--pm-white);
+  border: 1px solid var(--pm-gray-3);
+  color: var(--pm-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.ls-header-scroll-arrow:hover {
+  background: var(--pm-green-100);
+  border-color: var(--pm-green-400);
+  color: var(--pm-forest);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.ls-header-scroll-arrow.left { left: 8px; }
+.ls-header-scroll-arrow.right { right: 8px; }
+
+[dir="rtl"] .ls-header-fade-left {
+  left: auto;
+  right: 0;
+  background: linear-gradient(to left, rgba(244, 244, 242, 0.95), transparent);
+}
+[dir="rtl"] .ls-header-fade-right {
+  right: auto;
+  left: 0;
+  background: linear-gradient(to right, rgba(244, 244, 242, 0.95), transparent);
+}
+[dir="rtl"] .ls-header-scroll-arrow.left { left: auto; right: 8px; }
+[dir="rtl"] .ls-header-scroll-arrow.right { right: auto; left: 8px; }
+
+
+/* ==========================================================================
+   2. HERO SECTION (Proofmode Editorial Hero with Montagu Slab + Proof Strip)
+   ========================================================================== */
+.ls-hero {
+  position: relative;
+  padding: 70px 24px 60px;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ls-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Proofmode Top Tag Pill */
+.ls-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px;
+  background: var(--pm-white);
+  border: 1px solid var(--pm-gray-3);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-family: var(--font-sans);
+  color: var(--pm-forest);
+  box-shadow: var(--shadow-subtle);
+}
+
+/* Proofmode Big Montagu Slab Headline */
+.pm-hero-title, .ls-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--pm-black);
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ls-hero-subhead {
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--pm-gray-5);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Hero Action Buttons */
+.ls-hero-ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.ls-btn-primary {
+  background-color: var(--pm-green-900);
+  color: var(--pm-white);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 13px 30px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 18px rgba(30, 56, 52, 0.2);
+  transition: all 0.2s ease;
+}
+
+.ls-btn-primary:hover {
+  background-color: var(--pm-green-800);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 56, 52, 0.3);
+}
+
+.ls-btn-secondary {
+  background-color: var(--pm-white);
+  color: var(--pm-forest);
+  border: 1.5px solid var(--pm-gray-3);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 12px 26px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.2s ease;
+}
+
+.ls-btn-secondary:hover {
+  background-color: var(--pm-green-100);
+  border-color: var(--pm-green-200);
+  transform: translateY(-2px);
+}
+
+.ls-btn-audio {
+  background: linear-gradient(to right, var(--pm-green-core), var(--pm-green-100));
+  color: var(--pm-black);
+  border: 1px solid rgba(122, 227, 119, 0.4);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.ls-btn-audio:hover {
+  background: linear-gradient(to right, var(--pm-green-400), var(--pm-green-200));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(122, 227, 119, 0.4);
+}
+
+/* ==========================================================================
+   3. PROOFMODE SIGNATURE HERO PROOF STRIP (Floating Tags on Worker Photos)
+   ========================================================================== */
+.pm-hero-proof-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  overflow-x: auto;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.pm-proof-card {
+  position: relative;
+  width: 250px;
+  height: 330px;
+  border-radius: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--pm-white);
+  background: #000;
+}
+
+.pm-proof-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.pm-proof-card:hover img {
+  transform: scale(1.05);
+}
+
+.pm-proof-tags-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 8px;
+}
+
+.pm-proof-tags-overlay .proofmode-tag {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  font-size: 0.76rem;
+  min-height: 30px;
+  padding: 4px 12px;
+  width: fit-content;
+}
+
+/* Search Box (Proofmode White Card Format) */
+.ls-hero-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--pm-white);
+  border: 1px solid var(--pm-gray-3);
+  border-radius: var(--radius-full);
+  padding: 8px 10px 8px 22px;
+  width: 100%;
+  max-width: 680px;
+  box-shadow: 0 10px 30px rgba(30, 56, 52, 0.08);
+  margin-top: 10px;
+}
+
+.ls-search-icon {
+  color: var(--pm-forest);
+  flex-shrink: 0;
+}
+
+.ls-search-input {
+  flex: 1;
+  background: transparent;
+  font-size: 0.95rem;
+  color: var(--pm-black);
+}
+
+.ls-search-input::placeholder {
+  color: var(--pm-gray-4);
+}
+
+.ls-search-select {
+  background: var(--pm-gray-1);
+  border: 1px solid var(--pm-gray-3);
+  border-radius: var(--radius-full);
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  color: var(--pm-forest);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ls-search-btn {
+  background: var(--pm-forest);
+  color: var(--pm-white);
+  padding: 10px 22px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: all 0.2s ease;
+}
+
+.ls-search-btn:hover {
+  background: var(--pm-forest-dark);
+}
+
+/* ==========================================================================
+   4. PROOFMODE STEPPED PIXEL CORE GREEN SECTION
+   ========================================================================== */
+.pm-stepped-section {
+  position: relative;
+  background-color: var(--pm-green-core);
+  padding: 70px 24px 80px;
+  margin-top: 40px;
+  color: var(--pm-forest);
+}
+
+.pm-stepped-divider-top {
+  position: absolute;
+  top: -24px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.pm-stepped-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.pm-stepped-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  text-align: center;
+  color: var(--pm-forest);
+  max-width: 780px;
+  margin: 0 auto 36px;
+}
+
+.pm-check-badges-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px 36px;
+}
+
+.pm-check-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--pm-forest);
+  letter-spacing: 0.04em;
+}
+
+.pm-check-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--pm-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   5. PROOFMODE 40PX ROUNDED FEATURE BLOCKS (.proofmode-block-gradient)
+   ========================================================================== */
+.pm-blocks-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+  max-width: 1360px;
+  margin: 60px auto 0;
+}
+
+.pm-block-card {
+  border-radius: var(--radius-card);
+  padding: 44px;
+  background: var(--pm-white);
+  border: 1.5px solid var(--pm-gray-3);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pm-block-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.pm-block-card.col-6 {
+  grid-column: span 6;
+}
+
+.pm-block-card.col-12 {
+  grid-column: span 12;
+}
+
+.pm-block-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--pm-forest);
+  margin-bottom: 4px;
+}
+
+.pm-block-title {
+  font-family: var(--font-mono);
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--pm-black);
+  letter-spacing: 0.02em;
+}
+
+.pm-block-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--pm-gray-5);
+  margin-top: 12px;
+}
+
+.pm-block-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.pm-block-tag-btn {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  background: transparent;
+  color: var(--pm-forest);
+  border: 1.5px solid var(--pm-forest);
+  border-right: none;
+  border-radius: var(--radius-full) 0 0 var(--radius-full);
+}
+
+.pm-block-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 0 var(--radius-full) var(--radius-full) 0;
+  background: linear-gradient(to right, var(--pm-green-core), var(--pm-green-100));
+  border: 1.5px solid var(--pm-forest);
+  border-left: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pm-forest);
+}
+
+/* ==========================================================================
+   6. PARTNER MARQUEE ("We Support & Partner With")
+   ========================================================================== */
+.ls-marquee-wrapper {
+  margin: 50px 0 20px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: var(--pm-bg);
+}
+
+.pm-marquee-header {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pm-forest);
+  margin-bottom: 24px;
+}
+
+.ls-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+  gap: 20px;
+}
+
+.ls-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.ls-marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  background: var(--pm-white);
+  border: 1px solid var(--pm-gray-3);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--pm-forest);
+  box-shadow: var(--shadow-subtle);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   7. DIRECTORY / MARKETPLACE (Proofmode Verified Karigar Grid)
+   ========================================================================== */
+.ls-marketplace-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 28px 90px;
+}
+
+.ls-section-header {
+  margin-bottom: 32px;
+}
+
+.ls-section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pm-green-800);
+  background: var(--pm-green-100);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.ls-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 500;
+  color: var(--pm-black);
+  letter-spacing: -0.01em;
+}
+
+/* Category Filter Rail (Proofmode Tag Pills) */
+.ls-category-rail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 8px 4px 16px;
+  scrollbar-width: none;
+}
+.ls-category-rail::-webkit-scrollbar { display: none; }
+
+.ls-cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--pm-white);
+  border: 1px solid var(--pm-gray-3);
+  padding: 9px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--pm-forest);
+  box-shadow: var(--shadow-subtle);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.ls-cat-pill:hover {
+  background: var(--pm-green-100);
+  border-color: var(--pm-green-200);
+  transform: translateY(-1px);
+}
+
+.ls-cat-pill.active {
+  background: var(--pm-forest);
+  color: var(--pm-white);
+  border-color: var(--pm-forest);
+}
+
+.ls-cat-pill-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: var(--pm-gray-2);
+  color: var(--pm-forest);
+}
+
+.ls-cat-pill.active .ls-cat-pill-count {
+  background: var(--pm-green-core);
+  color: var(--pm-black);
+}
+
+/* Controls Bar */
+.ls-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 20px 0 32px;
+  padding: 16px 20px;
+  background: var(--pm-white);
+  border: 1px solid var(--pm-gray-3);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-subtle);
+}
+
+.ls-controls-left, .ls-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Proofmode Toggle Chips */
+.ls-toggle-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--pm-gray-1);
+  border: 1px solid var(--pm-gray-3);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--pm-forest);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ls-toggle-chip:hover {
+  background: var(--pm-green-100);
+}
+
+.ls-toggle-chip.active {
+  background: var(--pm-green-400);
+  border-color: var(--pm-green-500);
+  color: var(--pm-black);
+  font-weight: 700;
+}
+
+.ls-toggle-chip.active-cyan {
+  background: var(--pm-cyan);
+  border-color: #0284c7;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.ls-sort-dropdown {
+  background: var(--pm-gray-1);
+  border: 1px solid var(--pm-gray-3);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  font-size: 0.84rem;
+  color: var(--pm-forest);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Workers Cards Grid */
+.ls-workers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 26px;
+}
+
+.ls-worker-card {
+  background: var(--pm-white);
+  border: 1.5px solid var(--pm-gray-3);
+  border-radius: 28px;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.ls-worker-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--pm-green-300-core);
+}
+
+.ls-worker-top {
+  display: flex;
+  gap: 16px;
+}
+
+.ls-worker-avatar-wrap {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+}
+
+.ls-worker-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 1px solid var(--pm-gray-3);
+}
+
+.ls-worker-online-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--pm-white);
+}
+.ls-worker-online-badge.online { background-color: var(--pm-green-500); }
+.ls-worker-online-badge.offline { background-color: var(--pm-gray-4); }
+
+.ls-worker-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.ls-worker-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--pm-black);
+}
+
+.ls-worker-area {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--pm-gray-5);
+  margin-top: 3px;
+}
+
+.ls-worker-badges-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.ls-badge-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--pm-green-100);
+  color: var(--pm-green-900);
+  border: 1px solid var(--pm-green-200);
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.ls-badge-police {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.ls-subskill-tag {
+  background: var(--pm-gray-1);
+  border: 1px solid var(--pm-gray-3);
+  color: var(--pm-forest);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.ls-worker-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: var(--pm-gray-1);
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--pm-gray-3);
+  text-align: center;
+}
+
+.ls-metric-val {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--pm-black);
+}
+
+.ls-metric-lbl {
+  font-size: 0.72rem;
+  color: var(--pm-gray-5);
+  margin-top: 2px;
+}
+
+.ls-worker-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ls-rate-amount {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--pm-forest);
+}
+
+.ls-rate-unit {
+  font-size: 0.85rem;
+  color: var(--pm-gray-5);
+}
+
+.ls-btn-bio-audio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--pm-green-100);
+  border: 1px solid var(--pm-green-200);
+  color: var(--pm-forest);
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.ls-worker-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ls-btn-icon-action {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--pm-gray-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pm-white);
+  color: var(--pm-forest);
+  transition: all 0.2s ease;
+}
+
+.ls-btn-icon-action:hover {
+  background: var(--pm-green-100);
+  border-color: var(--pm-green-200);
+  transform: translateY(-1px);
+}
+
+.ls-btn-icon-action.phone:hover {
+  color: var(--pm-green-700);
+}
+
+.ls-btn-icon-action.whatsapp:hover {
+  color: #16a34a;
+}
+
+.ls-btn-card-book {
+  flex: 1;
+  background: linear-gradient(to right, var(--pm-green-core), var(--pm-green-100));
+  color: var(--pm-black);
+  border: 1px solid rgba(122, 227, 119, 0.4);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.ls-btn-card-book:hover {
+  background: linear-gradient(to right, var(--pm-green-400), var(--pm-green-200));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(122, 227, 119, 0.4);
+}
+
+/* ==========================================================================
+   8. TESTIMONIALS SECTION (Proofmode Verified Proof / The Latest)
+   ========================================================================== */
+.ls-testimonials-section {
+  padding: 80px 28px;
+  background: linear-gradient(to bottom right, var(--pm-bg), var(--pm-green-100));
+  border-top: 1px solid var(--pm-gray-3);
+  border-bottom: 1px solid var(--pm-gray-3);
+}
+
+.ls-testimonials-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.ls-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 36px;
+}
+
+.ls-testimonial-card {
+  background: var(--pm-white);
+  border: 1.5px solid var(--pm-gray-3);
+  border-radius: 28px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: var(--shadow-card);
+}
+
+.ls-stars-row {
+  display: flex;
+  gap: 3px;
+  color: #f59e0b;
+}
+
+.ls-testimonial-quote {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--pm-black);
+}
+
+.ls-testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid var(--pm-gray-3);
+  padding-top: 16px;
+}
+
+.ls-author-name {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--pm-forest);
+}
+
+.ls-author-loc {
+  font-size: 0.8rem;
+  color: var(--pm-gray-5);
+}
+
+/* ==========================================================================
+   9. PROOFMODE SPLIT FOOTER (Purple Accent + Deep Forest Columns)
+   ========================================================================== */
+.ls-footer {
+  background: var(--pm-forest);
+  color: var(--pm-white);
+  border-top: 1px solid var(--pm-gray-3);
+}
+
+.ls-footer-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.ls-footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding: 70px 32px 50px;
+}
+
+.ls-footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ls-footer-brand-col .ls-logo {
+  color: var(--pm-white);
+}
+
+.ls-footer-brand-col .ls-logo-text {
+  color: var(--pm-white);
+}
+
+.ls-footer-tagline {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  max-width: 320px;
+  line-height: 1.6;
+}
+
+.ls-footer-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--pm-green-core);
+}
+
+.ls-footer-heading {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--pm-green-core);
+  margin-bottom: 20px;
+}
+
+.ls-footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ls-footer-link {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.ls-footer-link:hover {
+  color: var(--pm-white);
+}
+
+.ls-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   10. MODALS & DRAWERS (Proofmode Crisp White Card Formats)
+   ========================================================================== */
+.ls-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 56, 52, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.ls-modal-content {
+  background: var(--pm-white);
+  border: 1.5px solid var(--pm-gray-3);
+  border-radius: 36px;
+  padding: 36px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+.ls-modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--pm-gray-1);
+  border: 1px solid var(--pm-gray-3);
+  color: var(--pm-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ls-form-group {
+  margin-bottom: 18px;
+}
+
+.ls-form-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  color: var(--pm-forest);
+  margin-bottom: 8px;
+}
+
+.ls-form-input {
+  width: 100%;
+  background: var(--pm-gray-1);
+  border: 1.5px solid var(--pm-gray-3);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: var(--pm-black);
+}
+
+.ls-form-input:focus {
+  border-color: var(--pm-forest);
+  background: var(--pm-white);
+}
+
+/* Floating Language Switcher */
+.ls-floating-lang-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: var(--pm-white);
+  border: 1.5px solid var(--pm-gray-3);
+  color: var(--pm-forest);
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-floating);
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ls-floating-lang-btn:hover {
+  background: var(--pm-green-100);
+  border-color: var(--pm-green-200);
+  transform: translateY(-2px);
+}
+
+[dir="rtl"] .ls-floating-lang-btn {
+  left: auto;
+  right: 24px;
+}
+
+/* Toast */
+.ls-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: var(--pm-forest);
+  color: var(--pm-white);
+  border-radius: var(--radius-full);
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 300;
+}
+
+[dir="rtl"] .ls-toast {
+  right: auto;
+  left: 28px;
+}
+
+/* ==========================================================================
+   11. WORKER & ADMIN DASHBOARDS (Proofmode Style)
+   ========================================================================== */
+.ls-dashboard-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px 28px 80px;
+}
+
+.ls-dash-banner {
+  background: var(--pm-white);
+  border: 1.5px solid var(--pm-gray-3);
+  border-radius: 32px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 32px;
+}
+
+.ls-dash-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.ls-dash-stat-card {
+  background: var(--pm-white);
+  border: 1.5px solid var(--pm-gray-3);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.ls-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--pm-gray-5);
+  letter-spacing: 0.04em;
+}
+
+/* Proofmode Job Queue Booking Card */
+.ls-booking-card {
+  background: var(--pm-white);
+  border: 1.5px solid var(--pm-gray-3);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.ls-booking-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--pm-green-300-core);
+}
+
+/* Proofmode Form Textarea */
+.ls-form-textarea {
+  width: 100%;
+  background: var(--pm-gray-1);
+  border: 1.5px solid var(--pm-gray-3);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  color: var(--pm-black);
+  font-family: var(--font-sans);
+  resize: vertical;
+}
+
+.ls-form-textarea:focus {
+  border-color: var(--pm-forest);
+  background: var(--pm-white);
+  outline: none;
+}
+
+/* Proofmode Language Selector Card */
+.ls-lang-card {
+  background: var(--pm-white);
+  border: 1.5px solid var(--pm-gray-3);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-subtle);
+}
+
+.ls-lang-card:hover {
+  border-color: var(--pm-green-core);
+  background: var(--pm-green-100);
+  transform: translateY(-2px);
+}
+
+.ls-lang-card.active {
+  border-color: var(--pm-green-core);
+  background: rgba(122, 227, 119, 0.12);
+  box-shadow: 0 4px 18px rgba(122, 227, 119, 0.25);
+}
+
+.ls-lang-card-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  background: var(--pm-gray-2);
+  border: 1px solid var(--pm-gray-3);
+  color: var(--pm-forest);
+}
+
+/* Proofmode Lavender Pre-Footer Banner */
+.pm-footer-banner {
+  background: var(--pm-purple);
+  color: var(--pm-forest);
+  padding: 56px 40px;
+  border-radius: 40px;
+  margin: 0 auto 50px;
+  max-width: 1360px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+  box-shadow: 0 16px 40px rgba(237, 158, 243, 0.25);
+}
+
+.pm-footer-banner-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--pm-forest);
+  margin: 0;
+}
+
+.pm-footer-banner-action {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   12. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .pm-block-card.col-6 { grid-column: span 12; }
+  .ls-testimonials-grid { grid-template-columns: 1fr; }
+  .ls-footer-top { grid-template-columns: 1fr 1fr; }
+  .ls-dash-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .pm-footer-banner { margin: 0 16px 40px; padding: 40px 24px; }
+}
+
+@media (max-width: 768px) {
+  .pm-hero-proof-strip { justify-content: flex-start; }
+  .ls-footer-top { grid-template-columns: 1fr; }
+  .ls-workers-grid { grid-template-columns: 1fr; }
+  .ls-dash-stats-grid { grid-template-columns: 1fr; }
+  .ls-controls-bar { flex-direction: column; align-items: stretch; }
+  .ls-hero-search { flex-direction: column; align-items: stretch; }
+  .pm-footer-banner { border-radius: 28px; }
+}
+
